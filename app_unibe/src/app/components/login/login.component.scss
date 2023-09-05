@@ -1,0 +1,22 @@
+.wrapper{
+background-image: url('../../../assets/img/fondo.png');
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.body{
+  background-color: white;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  border-radius: 20px; 
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); 
+  padding: 20px; 
+}
+.logo{
+  height: 200px;
+  margin-bottom: 10px;
+}

@@ -1,0 +1,46 @@
+<app-menu></app-menu>
+<div class="wrapper">
+    <div class="body">
+        <h2> {{titulo}} </h2>
+        <div class="formulario">
+            <div class="form-group">
+                <label>Cedula del estudiante:</label>
+                <input  [disabled]="true" pInputText [(ngModel)]="ciEstudiante" />
+            </div>
+            <div class="form-group">
+                <label>Escuela:</label>
+                <input pInputText  [disabled]="true" [(ngModel)]="escuela" />
+            </div>
+           
+
+            <div class="form-group">
+                <label>Nivel del estudiante:</label>
+                <p-inputNumber placeholder="Nivel" [(ngModel)]="nivel" mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="0" [max]="100"> </p-inputNumber>
+            </div>
+            
+        </div>
+        <div class="centered-group">
+            <p><strong>Ahora seleccione el tipo de matricula</strong></p>
+        </div>
+        <div class="formulario">
+            
+            <div class="form-group">
+        
+                <p-dropdown [options]="tipoMtricula" [(ngModel)]="selectMatricula" optionLabel="name"></p-dropdown>
+            </div>
+        </div>
+
+        <div class="formulario">
+            <div class="form-group">
+                <p-button label=" {{tituloB}} " (onClick)="  guaradActualizar()" styleClass="p-button-success"></p-button>
+
+            </div>
+            <div class="form-group">
+                <p-button label="Regresar" routerLink="/listaEstudiante" styleClass="p-button-warning"></p-button>
+            </div>
+        </div>
+        
+
+
+    </div>
+</div>

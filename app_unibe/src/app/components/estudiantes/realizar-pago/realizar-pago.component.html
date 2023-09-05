@@ -1,0 +1,61 @@
+
+  <app-menu></app-menu>
+<div class="wrapper">
+    <body>
+        <div class="invoice">
+            <div class="invoice-header">
+                <h1>Factura</h1>
+            </div>
+            <div class="invoice-details">
+                <span>Fecha: {{fecha}} </span>
+                <span>Id de factura: {{idFactura}} </span>
+            </div>
+            <div class="invoice-details">
+              <span>  Nombre: {{nombres}} </span>
+          </div>
+          <div class="invoice-details">
+            <span>  Cedula: {{cedula}} </span>
+        </div>
+            <table class="invoice-items">
+                <thead>
+                    <tr>
+                        <th>Id razon</th>
+                        <th>Descripción</th>
+                     
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td> {{idrazon}} </td>
+                        <td> {{razon}} </td>
+                        <td>${{subtotal}}</td>
+          
+                    </tr>
+                  
+                    <tr>
+                      <th colspan="2">SubTotal:</th>
+                      <td> ${{subtotal}} </td>
+                  </tr>
+                  <tr>
+                    <th colspan="2">Descuento:</th>
+                    <td>${{descuento}}</td>
+                </tr>
+                    <tr>
+                        <th colspan="2">Total a pagar:</th>
+                        <td>${{total}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div style="display: flex; justify-content: center; align-items: center;">
+              <div>
+                  <p-button (onClick)="llamarPayphone(total)" label="Confirmo que los datos son correctos" styleClass="p-button-success"></p-button>
+                  <div id="pp-button"></div>
+              </div>
+          </div>
+          
+       
+        </div>
+      </body>
+</div>

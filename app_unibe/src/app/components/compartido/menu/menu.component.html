@@ -1,0 +1,41 @@
+<p-menubar [model]="itemsSuperU" *ngIf="superU==true" >
+    <ng-template pTemplate="start" >
+        <img src="../../../../assets/img/logo-Unibe-02.png" height="40" />
+    </ng-template>
+    <ng-template pTemplate="end">
+        <p-button icon="pi pi-fw pi-power-off" (onClick)="salir()" styleClass="p-button-rounded p-button-danger p-button-outlined"></p-button>
+    </ng-template>
+</p-menubar>
+
+<p-menubar [model]="itemsDirector" *ngIf="director==true" >
+    <ng-template pTemplate="start" >
+        <img src="../../../../assets/img/logo-Unibe-02.png" height="40" />
+    </ng-template>
+    <ng-template pTemplate="end">
+        <p-button icon="pi pi-fw pi-power-off" (onClick)="salir()" styleClass="p-button-rounded p-button-danger p-button-outlined"></p-button>
+    </ng-template>
+</p-menubar>
+
+<p-menubar [model]="itemsEstudiante" *ngIf="estudiante==true" >
+    <ng-template pTemplate="start" >
+        <img src="../../../../assets/img/logo-Unibe-02.png" height="40" />
+      
+    </ng-template>
+   
+    <ng-template pTemplate="end">
+        
+        <p-button icon="pi pi-fw pi-power-off" (onClick)="salir()" styleClass="p-button-rounded p-button-danger p-button-outlined"></p-button>
+    </ng-template>
+</p-menubar>
+
+<p-menubar [model]="itmeFinanciero" *ngIf="financiero==true" >
+    <ng-template pTemplate="start" >
+        <img src="../../../../assets/img/logo-Unibe-02.png" height="40" />
+      
+    </ng-template>
+   
+    <ng-template pTemplate="end">
+        
+        <p-button icon="pi pi-fw pi-power-off" (onClick)="salir()" styleClass="p-button-rounded p-button-danger p-button-outlined"></p-button>
+    </ng-template>
+</p-menubar>

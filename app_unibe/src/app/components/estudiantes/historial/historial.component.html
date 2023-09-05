@@ -1,0 +1,99 @@
+
+<app-menu></app-menu>
+<div class="card">
+    <p-table
+        #dt1
+        [value]="misFacturas"
+        dataKey="cedula"
+        [rows]="10"
+        [showCurrentPageReport]="true"
+        [rowsPerPageOptions]="[10, 25, 50]"
+        [paginator]="true"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        [globalFilterFields]="['nombres', 'cedula', 'escuela', 'correo']"
+        [tableStyle]="{ 'min-width': '20rem' }"
+        
+   
+        >
+        <ng-template pTemplate="caption">
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="p-input-icon-left">
+                Filtrar factura:
+                <p-columnFilter type="text" field="Razon"></p-columnFilter>
+              </span>
+              <p-button icon="pi pi-money-bill" label="Pagar" styleClass="p-button-rounded p-button-success "routerLink="/pagos"></p-button>
+              
+            </div>
+          </ng-template>
+          
+          
+          
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="min-width:5rem">
+                    <div class="flex align-items-center">
+                        Id Factura
+                        
+                    </div>
+                </th>
+                <th style="min-width:15rem">
+                    <div class="flex align-items-center">
+                        Nombres
+                       
+                    </div>
+                </th>
+                <th style="min-width:10rem">
+                    <div class="flex align-items-center">
+                        cedula
+                       
+                    </div>
+                </th>
+                <th style="min-width:10rem">
+                    <div class="flex align-items-center">
+                        Razon
+                    </div>
+                </th>
+           
+                <th style="min-width:5rem">
+                    <div class="flex align-items-center">
+                        Descuento Beca
+                    </div>
+                </th>
+                <th style="min-width:5rem">
+                    <div class="flex align-items-center">
+                        SubTotal
+                    </div>
+                </th>
+                <th style="min-width:5rem">
+                    <div class="flex align-items-center">
+                        Total
+                    </div>
+                </th>
+                <th style="min-width:10rem">
+                    <div class="flex align-items-center">
+                        Estado
+                    </div>
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-listU>
+            <tr>
+                <td>{{listU.id}}</td>
+                <td>{{listU.nombre}}</td>
+                <td>{{listU.ci}}</td>
+                <td>{{listU.Razon}}</td>
+                <td>{{listU.descuentoBeca}}</td>
+                <td>{{listU.subtotal}}</td>
+                <td>{{listU.total}}</td>
+                <td>  <p-tag *ngIf="listU.pagado==false" icon="pi pi-exclamation-triangle" severity="warning" value="Pendiente"></p-tag>
+                    <p-tag *ngIf="listU.pagado==true" icon="pi pi-check" severity="success" value="Pagado"></p-tag></td>
+              
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+            <tr>
+                <td colspan="8">Estudiante no encontrado.</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

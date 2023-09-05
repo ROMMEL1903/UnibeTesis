@@ -1,0 +1,39 @@
+.wrapper {
+    background-image: url('../../../../assets/img/fondo.png');
+    height: 100%;
+    display: flex;
+    justify-content: center;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.body {
+    background-color: white;
+    max-height: 300px;
+    height: 100%;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    margin-top: 100px;
+
+}
+
+.formulario {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-group {
+    flex-basis: 50%;
+    margin-bottom: 10px;
+    
+}

@@ -1,0 +1,42 @@
+<app-menu></app-menu>
+<div class="wrapper">
+    <div *ngIf="!cargando" class="body">
+        <h2> {{titulo}} </h2>
+        <div class="formulario">
+
+            <div class="form-group">
+                <p>Seleccione el rol</p>
+                <p-dropdown [options]="roles" [(ngModel)]="selectRol" optionLabel="name"></p-dropdown>
+            </div>
+            <div class="form-group">
+                <p>Seleccione la escuela</p>
+                <p-dropdown [options]=" nombresEscuelas" [(ngModel)]="selectescuela" optionLabel="nombre"></p-dropdown>
+            </div>
+            <div class="form-group">
+                <input pInputText placeholder="Correo" [(ngModel)]="correo" />
+            </div>
+            <div class="form-group">
+                <p-password [(ngModel)]="clave" [feedback]="false" placeholder="Clave"></p-password>
+            </div>
+            <div class="form-group">
+                <input pInputText placeholder="Nombres" [(ngModel)]="nombres" />
+            </div>
+            <div class="form-group">
+                <input pInputText placeholder="Cedula" [(ngModel)]="cedula" />
+            </div>
+            <div class="form-group">
+                <p-button label="{{tituloB}}" (onClick)=" guaradActualizar()" styleClass="p-button-success"></p-button>
+               
+            </div>
+            <div class="form-group">
+                <p-button label="Regresar" routerLink="/listaUsers" styleClass="p-button-warning"></p-button>
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+    <app-spiner *ngIf="cargando" ></app-spiner>
+</div>

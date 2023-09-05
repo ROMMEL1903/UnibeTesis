@@ -1,0 +1,40 @@
+<app-menu></app-menu>
+
+
+<div class="message-container">
+    <p-message severity="warn" text="Importante: Si desea aplicar al financiamiento UNIBE antes de realizar el pago de la carga académica comuníquese al siguiente correo jsarango@gmail.com y espere una respuesta."></p-message>
+  </div>
+  <h3>Pagos Pendientes</h3>
+<div class="card-container">
+    
+    <div class="card-row">
+      <ng-container *ngFor="let factura of misFacturas">
+        <div class="card-column">
+          <p-card header="{{factura.Razon}}" subheader="Id factura: {{factura.id}}" [style]="{ width: '360px' }">
+            <ng-template pTemplate="header">
+            
+            </ng-template>
+            <p>Id Razon: {{factura.idRazon}} </p>
+            <p>Id Razon: {{factura.nombre}} </p>
+            <p>Cedula Estudiante: {{factura.ci}} </p>
+            <p>Descuento Beca: {{factura.descuentoBeca}} </p>
+            <p>Subtotal: {{factura.subtotal}} </p>
+            <p>Total: {{factura.total}} </p>
+            <ng-template pTemplate="footer">
+              <p-button (click)="pagar(factura.id?? 0)" label="Ir a pagar" icon="pi pi-money-bill"></p-button>
+
+
+            </ng-template>
+          </p-card>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  
+<div id="pp-button"> </div>
+
+
+
+
+
+

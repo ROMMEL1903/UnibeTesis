@@ -1,0 +1,86 @@
+<app-menu></app-menu>
+
+<div *ngIf="cargaCreada === false" class="wrapper">
+  <div class="body">
+    <h2>{{ titulo }}</h2>
+
+    <div class="formulario">
+      <div class="form-group">
+        <input pInputText placeholder="Ci Estudiante" [disabled]="true" [(ngModel)]="ciEstudiante" />
+      </div>
+      <div class="form-group">
+        <input pInputText placeholder="Fecha" [disabled]="true" [(ngModel)]="fecha" />
+      </div>
+      <div class="form-group">
+        <label>Seleccione el periodo</label>
+        <p-dropdown [options]="periodos" [(ngModel)]=" periodo" optionLabel="name"></p-dropdown>
+      </div>
+
+
+
+    </div>
+    <div class="centered-group">
+      <p><strong>Ahora seleccione la modalidad de la carga academica</strong></p>
+    </div>
+
+    <div class="formulario">
+      <div class="form-group" *ngIf="presencial === true">
+        <label>Modalidad Presencial</label>
+        <p-inputSwitch (click)="controlarSwitch()" [(ngModel)]="opcionpresencial"></p-inputSwitch>
+      </div>
+      <div class="form-group" *ngIf="semipresencial === true">
+        <label>Modalidad Semipresencial</label>
+        <p-inputSwitch (click)="controlarSwitch()" [(ngModel)]="opcionsemipresencial"></p-inputSwitch>
+      </div>
+      <div class="form-group" *ngIf="nocturno === true">
+        <label>Modalidad Nocturna</label>
+        <p-inputSwitch (click)="controlarSwitch()" [(ngModel)]="opcionnocturno"></p-inputSwitch>
+      </div>
+      <div class="form-group" *ngIf="distancia=== true">
+        <label>Modalidad Distancia</label>
+        <p-inputSwitch (click)="controlarSwitch()" [(ngModel)]="opciondistancia"></p-inputSwitch>
+      </div>
+
+    </div>
+
+    <div class="formulario">
+      <div class="form-group">
+        <p-button (onClick)="siguiente()" label="Siguiente" styleClass="p-button-success"></p-button>
+      </div>
+      <div class="form-group">
+        <p-button routerLink="/listaEstudiante" label="Regresar" styleClass="p-button-warning"></p-button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+<div *ngIf="cargaCreada === true" class="form-group" style="margin: 10px 0;">
+  <p-button (onClick)="guardarcargaFactura()" label="Terminar" styleClass="p-button-success"
+    class="float-right mr-2"></p-button>
+</div>
+
+<p-pickList *ngIf="cargaCreada === true" class="custom-picklist" [source]="sourceMateria" [target]="targetMateria"
+  sourceHeader="Materias" targetHeader="Carga Academica" [dragdrop]="true" [responsive]="true"
+  [sourceStyle]="{ height: '30rem' }" [targetStyle]="{ height: '30rem' }" filterBy="nombre"
+  sourceFilterPlaceholder="Buscar por nombre" targetFilterPlaceholder="Buscar por nombre" breakpoint="1400px">
+  <ng-template let-product pTemplate="item">
+    <div class="flex flex-wrap p-2 align-items-center gap-3">
+      <i class="pi pi-book"></i>
+      <span class="font-bold product-name">{{ product.nombre }}</span>
+      <div class="flex-1 flex flex-column gap-2">
+        <i class="pi pi-key"></i>
+        <span class="font-bold">{{ product.id }}</span>
+        <div class="flex align-products-center gap-2">
+          <i class="pi pi-tag"></i>
+          <span>{{ product.creditos }}</span>
+        </div>
+      </div>
+      <i class="pi  pi-money-bill"></i>
+      <span class="font-bold text-900">{{ '$' + product.ModaPresencial}}</span>
+    </div>
+  </ng-template>
+</p-pickList>

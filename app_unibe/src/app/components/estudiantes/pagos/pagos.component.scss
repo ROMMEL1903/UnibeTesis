@@ -1,0 +1,25 @@
+.card-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .card-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .card-column {
+    flex-basis: 33.33%;
+    max-width: 33.33%;
+  }
+
+  .message-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    text-align: center;
+  }

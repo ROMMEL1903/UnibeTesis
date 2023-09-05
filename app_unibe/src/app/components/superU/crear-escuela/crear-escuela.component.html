@@ -1,0 +1,60 @@
+<app-menu></app-menu>
+<div class="wrapper">
+    <div class="body">
+        <h2> {{titulo}} </h2>
+        <div class="formulario">
+            <div class="form-group">
+                <label>Nombre:</label>
+                <input pInputText placeholder="Nombre de la Escuela" [(ngModel)]="nombre" />
+            </div>
+            <div class="form-group">
+                <label>Inscripcion</label>
+                <p-inputNumber [(ngModel)]="Inscripcion" placeholder="Ingrese el valor $" inputId="currency-us" mode="currency" currency="USD" locale="en-US"> </p-inputNumber>
+            </div>
+            <div class="form-group">
+                <label>Matricual ordinaria</label>
+                <p-inputNumber [(ngModel)]="matriculaOrdinaria" placeholder="Ingrese el valor $" inputId="currency-us" mode="currency" currency="USD" locale="en-US"> </p-inputNumber>
+            </div>
+            <div class="form-group">
+                <label>Matricula Extraordinaria</label>
+                <p-inputNumber [(ngModel)]="matriculaExtraordinaria" placeholder="Ingrese el valor $" inputId="currency-us" mode="currency" currency="USD" locale="en-US"> </p-inputNumber>
+            </div>
+            <div class="form-group">
+                <label>Matricula Especial</label>
+                <p-inputNumber [(ngModel)]="matriculaEspecial" placeholder="Ingrese el valor $" inputId="currency-us" mode="currency" currency="USD" locale="en-US"> </p-inputNumber>
+            </div>
+           
+        </div>
+
+        <div class="centered-group">
+            <p><strong>Ahora seleccione las modalidades de la escuela</strong></p>
+        </div>
+
+        <div class="formulario">
+            <div class="form-group">
+                <label>Modalidad Presencial</label>
+                <p-inputSwitch [(ngModel)]="modalidadPresencial"></p-inputSwitch>
+            </div>
+            <div class="form-group">
+                <label>Modalidad Semipresencial</label>
+                <p-inputSwitch [(ngModel)]="modalidadSemipresencial"></p-inputSwitch>
+            </div>
+            <div class="form-group">
+                <label>Modalidad Nocturna</label>
+                <p-inputSwitch [(ngModel)]="modalidadNocturno"></p-inputSwitch>
+            </div>
+            <div class="form-group">
+                <label>Modalidad Distancia</label>
+                <p-inputSwitch [(ngModel)]="modalidadDistancia"></p-inputSwitch>
+            </div>
+            <div class="form-group">
+                <p-button label="{{tituloB}}" (onClick)="guardarActualizar()" styleClass="p-button-success"></p-button>
+               
+            </div>
+            <div class="form-group">
+                <p-button label="Regresar" routerLink="/listaEscuelas" styleClass="p-button-warning"></p-button>
+            </div>
+        </div>
+
+    </div>
+</div>

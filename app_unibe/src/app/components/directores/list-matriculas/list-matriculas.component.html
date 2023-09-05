@@ -1,0 +1,114 @@
+<app-menu></app-menu>
+
+
+
+
+<div class="card">
+    <p-table
+        #dt1
+        [value]="matricula"
+        dataKey="cedula"
+        [rows]="10"
+        [showCurrentPageReport]="true"
+        [rowsPerPageOptions]="[10, 25, 50]"
+        [paginator]="true"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        [globalFilterFields]="['nombres', 'cedula', 'escuela', 'correo']"
+        [tableStyle]="{ 'min-width': '20rem' }"
+        >
+        <ng-template pTemplate="caption">
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="p-input-icon-left">
+                Filtrar Matricula:
+                <p-columnFilter type="text" field="ciEstudiante"></p-columnFilter>
+              </span>
+              <p-button icon="pi pi-plus" routerLink="/listaEstudiante" label="Crear" styleClass="p-button-rounded"></p-button>
+            </div>
+          </ng-template>
+          
+          
+          
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="min-width:10rem">
+                    <div class="flex align-items-center">
+                        Id
+                        
+                    </div>
+                </th>
+                <th style="min-width:10rem">
+                    <div class="flex align-items-center">
+                        Estudiante                       
+                    </div>
+                </th>
+                <th style="min-width:10rem">
+                    <div class="flex align-items-center">
+                        Fecha
+                       
+                    </div>
+                </th>
+                <th style="min-width:10rem">
+                    <div class="flex align-items-center">
+                        Escuela
+                        
+                    </div>
+                </th>
+                <th style="min-width:10rem">
+                    <div class="flex align-items-center">
+                        Tipo de Matricula
+                        
+                    </div>
+                </th>
+                <th style="min-width:10rem">
+                    <div class="flex align-items-center">
+                        Nivel
+                        
+                    </div>
+                </th>
+              
+                <th style="min-width:10rem">
+                    <div class="flex align-items-center">
+                        Editar
+                    </div>
+                </th>
+                <th style="min-width:10rem">
+                    <div class="flex align-items-center">
+                        Eliminar
+                    </div>
+                </th>
+             
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-listU>
+            <tr>
+                <td>{{listU.id}}</td>
+                <td>{{listU.ciEstudiante}}</td>
+                <td>{{listU.Fecha}}</td>
+                <td>{{listU.escuela}}</td>
+                <td>{{listU.tipoMatricula}}</td>
+                <td>{{listU.nivel}}</td>
+                
+                <td>
+                    <p-button (onClick)="editar(listU.id)" icon="pi pi-pencil" styleClass="p-button-rounded p-button-secondary"></p-button>
+                </td>
+                <td>
+                    <p-button (onClick)="eliminar(listU.id)" icon="pi pi-trash" styleClass="p-button-rounded p-button-danger"></p-button>
+                </td>
+             
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+            <tr>
+                <td colspan="8">Estudiante no encontrado.</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+
+
+
+
+
+
+
+

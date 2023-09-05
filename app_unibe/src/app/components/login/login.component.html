@@ -1,0 +1,22 @@
+
+<div class="wrapper">
+	
+	<div class="body" *ngIf="!cargando"  >
+		<img class="logo"
+			src="../../../assets/img/Logo-de-la-Universidad-Iberoamericana-del-Ecuador-UNIBE-300x300 (1).png"
+			alt="img login">
+		<h2> Inicio de sesion</h2>
+		<div class="form-floating mb-3">
+			<input pInputText placeholder="Correo" [(ngModel)]="correo" />
+			
+		</div>
+		<div class="form-floating mb-3">
+			<p-password [(ngModel)]="clave" [feedback]="false"   placeholder="Clave" ></p-password>
+			
+		</div>
+		<p-button  styleClass="p-button-rounded " (onClick)="iniciar()" label="Ingresar"> </p-button>
+	</div>
+	<app-spiner *ngIf="cargando" ></app-spiner>
+
+</div>
+

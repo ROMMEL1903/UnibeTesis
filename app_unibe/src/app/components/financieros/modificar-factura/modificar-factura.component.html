@@ -1,0 +1,68 @@
+<app-menu></app-menu>
+<div>
+    
+    <body>
+        <div class="invoice">
+            <div class="invoice-header">
+                <h1>Factura</h1>
+            </div>
+            <div class="invoice-details">
+                <span>Fecha: {{fecha}} </span>
+                <span>Id de factura: {{idFactura}} </span>
+            </div>
+            <div class="invoice-details">
+              <span>  Nombre: {{nombres}} </span>
+          </div>
+          <div class="invoice-details">
+            <span>  Cedula: {{cedula}} </span>
+        </div>
+            <table class="invoice-items">
+                <thead>
+                    <tr>
+                        <th>Id razon</th>
+                        <th>Descripción</th>
+                     
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td> {{idrazon}} </td>
+                        <td> {{razon}} </td>
+                        <td>${{subtotal}}</td>
+          
+                    </tr>
+                  
+                    <tr>
+                      <th colspan="2">SubTotal:</th>
+                      <td> ${{subtotal}} </td>
+                  </tr>
+                  <tr>
+                    <th colspan="2">Descuento:</th>
+                    <td>${{descuento}}</td>
+                </tr>
+                    <tr>
+                        <th colspan="2">Total a pagar:</th>
+                        <td>${{total}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div style="display: flex; justify-content: center; align-items: center; margin: 5px;">
+             Ingrese el porcentaje de descuento:  <p-inputNumber inputId="integeronly" [(ngModel)]="value2"> </p-inputNumber>
+          </div>
+          <div style="display: flex; justify-content: center; align-items: center;">
+            <p-button *ngIf="finanUnibe==false" (onClick)="updateFactura()" label="Guardar descuento" class="botones-separados"></p-button>
+            <p-button (onClick)="finaciamiento()" label="Financiamiento" styleClass="p-button-warning"></p-button>
+        </div>
+        <div style="display: flex; justify-content: center; align-items: center; margin-top: 5px;">
+            <p-button [routerLink]="'/listaFacturas'" label="Regresar" styleClass="p-button-rounded p-button-danger"></p-button>
+
+        </div>
+        
+        
+          
+       
+        </div>
+      </body>
+</div>

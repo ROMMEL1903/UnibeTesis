@@ -1,0 +1,113 @@
+<app-menu></app-menu>
+<div class="card">
+    <p-table #dt1 [value]="facturas" dataKey="ci" [rows]="10" [showCurrentPageReport]="true"
+        [rowsPerPageOptions]="[10, 25, 50]" [paginator]="true"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        [globalFilterFields]="['nombres', 'cedula', 'escuela', 'correo']">
+        <ng-template pTemplate="caption">
+            <div class="d-flex justify-content-between align-items-center">
+                <span class="p-input-icon-left">
+                    Filtrar Facturas por estudiante:
+                    <p-columnFilter type="text" field="ci"></p-columnFilter>
+                </span>
+
+            </div>
+        </ng-template>
+
+
+
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="min-width:5rem">
+                    <div class="flex align-items-center">
+                        Id
+
+                    </div>
+                </th>
+                <th style="min-width:15rem">
+                    <div class="flex align-items-center">
+                        Nombre
+
+                    </div>
+                </th>
+                <th style="min-width:10rem">
+                    <div class="flex align-items-center">
+                        Cedula
+                        <p-columnFilter type="text" field="escuela" display="menu"></p-columnFilter>
+                    </div>
+                </th>
+                <th style="min-width:5rem">
+                    <div class="flex align-items-center">
+                        Fecha
+
+                    </div>
+                </th>
+                <th style="min-width:10rem">
+                    <div class="flex align-items-center">
+                        Razon
+
+                    </div>
+                </th>
+                <th style="min-width:5rem">
+                    <div class="flex align-items-center">
+                        idRazon
+                    </div>
+                </th>
+                <th style="min-width:5rem">
+                    <div class="flex align-items-center">
+                        Subtotal
+                    </div>
+                </th>
+                <th style="min-width:2rem">
+                    <div class="flex align-items-center">
+                        Descuento Beca
+                    </div>
+                </th>
+                <th style="min-width:5rem">
+                    <div class="flex align-items-center">
+                        Total
+                    </div>
+                </th>
+                <th style="min-width:5rem">
+                    <div class="flex align-items-center">
+                        Estado
+                    </div>
+                </th>
+                <th style="min-width:5rem">
+                    <div class="flex align-items-center">
+                        Modificar
+                    </div>
+                </th>
+
+
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-listU>
+            <tr>
+                <td>{{listU.id}}</td>
+                <td>{{listU.nombre}}</td>
+                <td>{{listU.ci}}</td>
+                <td>{{listU.Fecha}}</td>
+                <td>{{listU.Razon}}</td>
+                <td>{{listU.idRazon}}</td>
+                <td>{{listU.subtotal}}</td>
+                <td>{{listU.descuentoBeca}}</td>
+                <td>{{listU.total}}</td>
+                <td> <p-tag *ngIf="listU.pagado==false" icon="pi pi-clock" severity="warning"
+                        value="Pendiente"></p-tag>
+                    <p-tag *ngIf="listU.pagado==true" icon="pi pi-check" severity="success" value="Pagado"></p-tag>
+                </td>
+                <td>
+                    <p-button (onClick)="modificar(listU.id,listU.total,listU.Razon)" icon="pi pi-pencil" styleClass="p-button-rounded"></p-button>
+                </td>
+
+
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+            <tr>
+                <td colspan="8">Facturas no encontradas.</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

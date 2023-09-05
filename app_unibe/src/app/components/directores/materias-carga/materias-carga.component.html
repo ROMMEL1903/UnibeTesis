@@ -1,0 +1,20 @@
+
+<p-pickList  class="custom-picklist" [source]="sourceMateria" [target]="targetMateria" sourceHeader="Materias" targetHeader="Carga Academica" [dragdrop]="true" [responsive]="true" [sourceStyle]="{ height: '30rem' }"
+    [targetStyle]="{ height: '30rem' }" filterBy="nombre" sourceFilterPlaceholder="Buscar por nombre" targetFilterPlaceholder="Buscar por nombre" breakpoint="1400px">
+    <ng-template let-product pTemplate="item">
+        <div class="flex flex-wrap p-2 align-items-center gap-3">
+            <i class="pi pi-book"></i>
+            <span class="font-bold product-name">{{ product.nombre }}</span>
+            <div class="flex-1 flex flex-column gap-2">
+                <i class="pi pi-key"></i>
+                <span class="font-bold">{{ product.id }}</span>
+                <div class="flex align-products-center gap-2">
+                    <i class="pi pi-tag"></i>
+                    <span>{{ product.creditos }}</span>
+                </div>
+            </div>
+            <i class="pi  pi-money-bill"></i>
+            <span class="font-bold text-900">{{ '$' + product.valorCredito }}</span>
+        </div>
+    </ng-template>
+</p-pickList>
